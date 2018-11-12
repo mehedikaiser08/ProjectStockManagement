@@ -41,10 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.stockOutDataGridView = new System.Windows.Forms.DataGridView();
             this.sellButton = new System.Windows.Forms.Button();
             this.damageButton = new System.Windows.Forms.Button();
             this.lostButton = new System.Windows.Forms.Button();
+            this.stockOutDataGridView = new System.Windows.Forms.DataGridView();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +76,7 @@
             this.itemStockOutComboBox.Name = "itemStockOutComboBox";
             this.itemStockOutComboBox.Size = new System.Drawing.Size(193, 21);
             this.itemStockOutComboBox.TabIndex = 32;
+            this.itemStockOutComboBox.SelectedIndexChanged += new System.EventHandler(this.itemStockOutComboBox_SelectedIndexChanged);
             // 
             // itemStockComBox
             // 
@@ -89,6 +95,7 @@
             this.addButton.TabIndex = 30;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // availableQuantityStockOutTextBox
             // 
@@ -111,6 +118,7 @@
             this.companyStockOutComboBox.Name = "companyStockOutComboBox";
             this.companyStockOutComboBox.Size = new System.Drawing.Size(193, 21);
             this.companyStockOutComboBox.TabIndex = 27;
+            this.companyStockOutComboBox.SelectedIndexChanged += new System.EventHandler(this.companyStockOutComboBox_SelectedIndexChanged);
             // 
             // categoryStockOutComboBox
             // 
@@ -119,6 +127,7 @@
             this.categoryStockOutComboBox.Name = "categoryStockOutComboBox";
             this.categoryStockOutComboBox.Size = new System.Drawing.Size(193, 21);
             this.categoryStockOutComboBox.TabIndex = 26;
+            this.categoryStockOutComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryStockOutComboBox_SelectedIndexChanged);
             // 
             // quantityTextBox
             // 
@@ -156,14 +165,6 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Category";
             // 
-            // stockOutDataGridView
-            // 
-            this.stockOutDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.stockOutDataGridView.Location = new System.Drawing.Point(12, 254);
-            this.stockOutDataGridView.Name = "stockOutDataGridView";
-            this.stockOutDataGridView.Size = new System.Drawing.Size(526, 238);
-            this.stockOutDataGridView.TabIndex = 35;
-            // 
             // sellButton
             // 
             this.sellButton.Location = new System.Drawing.Point(289, 498);
@@ -172,6 +173,7 @@
             this.sellButton.TabIndex = 36;
             this.sellButton.Text = "Sell";
             this.sellButton.UseVisualStyleBackColor = true;
+            this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
             // 
             // damageButton
             // 
@@ -181,6 +183,7 @@
             this.damageButton.TabIndex = 37;
             this.damageButton.Text = "Damage";
             this.damageButton.UseVisualStyleBackColor = true;
+            this.damageButton.Click += new System.EventHandler(this.damageButton_Click);
             // 
             // lostButton
             // 
@@ -190,6 +193,46 @@
             this.lostButton.TabIndex = 38;
             this.lostButton.Text = "Lost";
             this.lostButton.UseVisualStyleBackColor = true;
+            this.lostButton.Click += new System.EventHandler(this.lostButton_Click);
+            // 
+            // stockOutDataGridView
+            // 
+            this.stockOutDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stockOutDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sl,
+            this.item,
+            this.category,
+            this.company,
+            this.quantity});
+            this.stockOutDataGridView.Location = new System.Drawing.Point(12, 254);
+            this.stockOutDataGridView.Name = "stockOutDataGridView";
+            this.stockOutDataGridView.Size = new System.Drawing.Size(526, 238);
+            this.stockOutDataGridView.TabIndex = 35;
+            // 
+            // sl
+            // 
+            this.sl.HeaderText = "SL";
+            this.sl.Name = "sl";
+            // 
+            // item
+            // 
+            this.item.HeaderText = "Item";
+            this.item.Name = "item";
+            // 
+            // category
+            // 
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            // 
+            // company
+            // 
+            this.company.HeaderText = "Company";
+            this.company.Name = "company";
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Stock OutQuantity";
+            this.quantity.Name = "quantity";
             // 
             // StockOutForm
             // 
@@ -215,6 +258,7 @@
             this.Controls.Add(this.label1);
             this.Name = "StockOutForm";
             this.Text = "StockOutForm";
+            this.Load += new System.EventHandler(this.StockOutForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -236,9 +280,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView stockOutDataGridView;
         private System.Windows.Forms.Button sellButton;
         private System.Windows.Forms.Button damageButton;
         private System.Windows.Forms.Button lostButton;
+        private System.Windows.Forms.DataGridView stockOutDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
     }
 }

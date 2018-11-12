@@ -44,6 +44,7 @@
             this.searchCompanyComboBox.Name = "searchCompanyComboBox";
             this.searchCompanyComboBox.Size = new System.Drawing.Size(193, 21);
             this.searchCompanyComboBox.TabIndex = 31;
+            this.searchCompanyComboBox.SelectedIndexChanged += new System.EventHandler(this.searchCompanyComboBox_SelectedIndexChanged);
             // 
             // searchCategoryComboBox
             // 
@@ -79,6 +80,7 @@
             this.searchButton.TabIndex = 32;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchDataGridView
             // 
@@ -101,6 +103,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SearchForm";
             this.Text = "Search & View Item\'s Summary";
+            this.Load += new System.EventHandler(this.SearchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

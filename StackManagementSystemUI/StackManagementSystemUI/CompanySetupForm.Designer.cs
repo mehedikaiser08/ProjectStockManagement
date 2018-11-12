@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.companyDataGridView = new System.Windows.Forms.DataGridView();
-            this.nameCompanyTextBox = new System.Windows.Forms.TextBox();
+            this.CompanyNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -43,13 +43,14 @@
             this.companyDataGridView.Name = "companyDataGridView";
             this.companyDataGridView.Size = new System.Drawing.Size(313, 195);
             this.companyDataGridView.TabIndex = 7;
+            this.companyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.companyDataGridView_CellContentClick);
             // 
-            // nameCompanyTextBox
+            // CompanyNameTextBox
             // 
-            this.nameCompanyTextBox.Location = new System.Drawing.Point(99, 17);
-            this.nameCompanyTextBox.Name = "nameCompanyTextBox";
-            this.nameCompanyTextBox.Size = new System.Drawing.Size(170, 20);
-            this.nameCompanyTextBox.TabIndex = 6;
+            this.CompanyNameTextBox.Location = new System.Drawing.Point(99, 17);
+            this.CompanyNameTextBox.Name = "CompanyNameTextBox";
+            this.CompanyNameTextBox.Size = new System.Drawing.Size(170, 20);
+            this.CompanyNameTextBox.TabIndex = 6;
             // 
             // label1
             // 
@@ -68,6 +69,7 @@
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // editButton
             // 
@@ -77,6 +79,7 @@
             this.editButton.TabIndex = 8;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // CompanySetupForm
             // 
@@ -85,11 +88,12 @@
             this.ClientSize = new System.Drawing.Size(350, 302);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.companyDataGridView);
-            this.Controls.Add(this.nameCompanyTextBox);
+            this.Controls.Add(this.CompanyNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.saveButton);
             this.Name = "CompanySetupForm";
             this.Text = "CompanySetupForm";
+            this.Load += new System.EventHandler(this.CompanySetupForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.companyDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView companyDataGridView;
-        private System.Windows.Forms.TextBox nameCompanyTextBox;
+        private System.Windows.Forms.TextBox CompanyNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button editButton;

@@ -35,7 +35,7 @@
             this.categoryItemComboBox = new System.Windows.Forms.ComboBox();
             this.companyItemComboBox = new System.Windows.Forms.ComboBox();
             this.itemNameTextBox = new System.Windows.Forms.TextBox();
-            this.reorderItemLevelTextBox = new System.Windows.Forms.TextBox();
+            this.reorderLavelTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -98,13 +98,13 @@
             this.itemNameTextBox.Size = new System.Drawing.Size(193, 20);
             this.itemNameTextBox.TabIndex = 6;
             // 
-            // reorderItemLevelTextBox
+            // reorderLavelTextBox
             // 
-            this.reorderItemLevelTextBox.Location = new System.Drawing.Point(111, 120);
-            this.reorderItemLevelTextBox.Name = "reorderItemLevelTextBox";
-            this.reorderItemLevelTextBox.Size = new System.Drawing.Size(193, 20);
-            this.reorderItemLevelTextBox.TabIndex = 7;
-            this.reorderItemLevelTextBox.Text = "0";
+            this.reorderLavelTextBox.Location = new System.Drawing.Point(111, 120);
+            this.reorderLavelTextBox.Name = "reorderLavelTextBox";
+            this.reorderLavelTextBox.Size = new System.Drawing.Size(193, 20);
+            this.reorderLavelTextBox.TabIndex = 7;
+            this.reorderLavelTextBox.Text = "0";
             // 
             // saveButton
             // 
@@ -114,6 +114,7 @@
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // ItemForm
             // 
@@ -121,7 +122,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 233);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.reorderItemLevelTextBox);
+            this.Controls.Add(this.reorderLavelTextBox);
             this.Controls.Add(this.itemNameTextBox);
             this.Controls.Add(this.companyItemComboBox);
             this.Controls.Add(this.categoryItemComboBox);
@@ -131,6 +132,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ItemForm";
             this.Text = "ItemForm";
+            this.Load += new System.EventHandler(this.ItemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,7 +147,7 @@
         private System.Windows.Forms.ComboBox categoryItemComboBox;
         private System.Windows.Forms.ComboBox companyItemComboBox;
         private System.Windows.Forms.TextBox itemNameTextBox;
-        private System.Windows.Forms.TextBox reorderItemLevelTextBox;
+        private System.Windows.Forms.TextBox reorderLavelTextBox;
         private System.Windows.Forms.Button saveButton;
     }
 }

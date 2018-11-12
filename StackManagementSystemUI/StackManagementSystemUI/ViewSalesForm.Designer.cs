@@ -31,20 +31,21 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.fromDateComboBox = new System.Windows.Forms.ComboBox();
-            this.toDateComboBox = new System.Windows.Forms.ComboBox();
             this.viewSalesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.viewSalesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(368, 78);
+            this.searchButton.Location = new System.Drawing.Point(370, 87);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 0;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // label1
             // 
@@ -64,22 +65,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "To Date";
             // 
-            // fromDateComboBox
-            // 
-            this.fromDateComboBox.FormattingEnabled = true;
-            this.fromDateComboBox.Location = new System.Drawing.Point(264, 16);
-            this.fromDateComboBox.Name = "fromDateComboBox";
-            this.fromDateComboBox.Size = new System.Drawing.Size(188, 21);
-            this.fromDateComboBox.TabIndex = 3;
-            // 
-            // toDateComboBox
-            // 
-            this.toDateComboBox.FormattingEnabled = true;
-            this.toDateComboBox.Location = new System.Drawing.Point(264, 51);
-            this.toDateComboBox.Name = "toDateComboBox";
-            this.toDateComboBox.Size = new System.Drawing.Size(188, 21);
-            this.toDateComboBox.TabIndex = 4;
-            // 
             // viewSalesDataGridView
             // 
             this.viewSalesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -88,14 +73,33 @@
             this.viewSalesDataGridView.Size = new System.Drawing.Size(567, 199);
             this.viewSalesDataGridView.TabIndex = 5;
             // 
+            // dateTimePickerStart
+            // 
+            this.dateTimePickerStart.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(264, 24);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerStart.TabIndex = 6;
+            this.dateTimePickerStart.Value = new System.DateTime(2018, 11, 12, 0, 0, 0, 0);
+            // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(264, 53);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerEnd.TabIndex = 7;
+            // 
             // ViewSalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 392);
+            this.Controls.Add(this.dateTimePickerEnd);
+            this.Controls.Add(this.dateTimePickerStart);
             this.Controls.Add(this.viewSalesDataGridView);
-            this.Controls.Add(this.toDateComboBox);
-            this.Controls.Add(this.fromDateComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchButton);
@@ -112,8 +116,8 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox fromDateComboBox;
-        private System.Windows.Forms.ComboBox toDateComboBox;
         private System.Windows.Forms.DataGridView viewSalesDataGridView;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
     }
 }
